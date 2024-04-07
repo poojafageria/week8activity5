@@ -1,0 +1,46 @@
+<!-- updatepayment.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Update Payment</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <!-- Link to external stylesheet -->
+</head>
+<body>
+  <nav class="navbar">
+    <h1>My Payments</h1>
+    <div class="links">
+      <a href="/">Home</a>
+      <a class="new-item-link" href="/addpayment">New Payment</a>
+    </div>
+  </nav>
+
+  <div class="content">
+    <div class="update">
+      <h2>Update Payment</h2>
+      <form action="/single-payment/<%= payment._id %>?_method=PUT" method="POST">
+        <label>method:</label>
+        <input type="text" value="<%= payment.method %>" id="method" name="method" required />
+
+        <label for="amount">amount:</label>
+        <textarea id="amount" name="amount" rows="4" required><%= payment.amount %></textarea>
+
+        <label for="status">status:</label>
+        <input type="status" id="status" name="status" required value="<%= payment.status %>" />
+
+        <!-- <label>Author:</label>
+        <select name="author">
+          <option value="sami">Sami</option>
+          <option value="rami">Rami</option>
+        </select> -->
+
+        
+
+        <button type="submit">Update Payment</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

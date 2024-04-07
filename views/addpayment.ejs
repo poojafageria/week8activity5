@@ -1,26 +1,26 @@
-<!-- addevent.ejs -->
+<!-- addpayment.ejs -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add Event</title>
+    <title>Add Payment</title>
     <link rel="stylesheet" href="/css/styles.css" />
     <!-- Link to external stylesheet -->
   </head>
   <body>
     <nav class="navbar">
-      <h1>My Events</h1>
+      <h1>My Payments</h1>
       <div class="links">
         <a href="/">Home</a
-        ><a class="new-item-link" href="/addevent">New Event</a>
+        ><a class="new-item-link" href="/addpayment">New Payment</a>
       </div>
     </nav>
 
     <div class="content">
       <div class="create">
-        <h2>Add a New Event</h2>
-        <form action="/addEvent" method="POST">
+        <h2>Add a New Payment</h2>
+        <form action="/addPayment" method="POST">
           <label>Title:</label
           ><input type="text" value="" id="title" name="title" required />
 
@@ -46,7 +46,7 @@
           <label for="location">Location:</label>
           <input type="string" id="location" name="location" /><br />
 
-          <button type="submit">Add Event</button>
+          <button type="submit">Add Payment</button>
         </form>
       </div>
     </div>

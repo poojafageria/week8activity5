@@ -4,8 +4,8 @@ const methodOverride = require('method-override')
 
 const connectDB = require("./config/db");
 
-const blogAPI = require("./controllers/eventAPIController");
-const blogSSR = require("./controllers/eventSSRController");
+const blogAPI = require("./controllers/paymentAPIController");
+const blogSSR = require("./controllers/paymentSSRController");
 
 //Important: will be discussed next week
 app.use(express.json());
@@ -34,36 +34,36 @@ const logger = (req, res, next) => {
 app.use(logger) 
  
 // SSR
-// End1: Route to render index.html with events using EJS
-app.get("/", blogSSR.renderEvents);
-// End2: Define a route to render the addevent.ejs view
-app.get("/addevent", blogSSR.renderForm);
-// End3:Route to add  event using EJ
-app.post("/addevent", blogSSR.addEvent);
-// Define a route to render the singleevent.ejs view
-app.get("/single-event/:id", blogSSR.renderEvent);
-// Define a route to delete singleevent
-app.delete("/single-event/:id", blogSSR.deleteEvent);
-// Define a route to update single event.ejs
-app.put("/single-event/:id", blogSSR.updateEvent);
-// Define event to update
-app.get("/single-event/update/:id", blogSSR.renderUpdateEvent);
+// End1: Route to render index.html with payments using EJS
+app.get("/", blogSSR.renderPayments);
+// End2: Define a route to render the addpayment.ejs view
+app.get("/addpayment", blogSSR.renderForm);
+// End3:Route to add  payment using EJ
+app.post("/addpayment", blogSSR.addPayment);
+// Define a route to render the singlepayment.ejs view
+app.get("/single-payment/:id", blogSSR.renderPayment);
+// Define a route to delete singlepayment
+app.delete("/single-payment/:id", blogSSR.deletePayment);
+// Define a route to update single payment.ejs
+app.put("/single-payment/:id", blogSSR.updatePayment);
+// Define payment to update
+app.get("/single-payment/update/:id", blogSSR.renderUpdatePayment);
 
 
 // API
-// GET all Events
-app.get("/api/events", blogAPI.getEvents);
-// POST a new Event
-app.post("/api/events", blogAPI.addEvent);
-// GET a single Event
-app.get("/api/events/:id", blogAPI.getEvent);
+// GET all Payments
+app.get("/api/payments", blogAPI.getPayments);
+// POST a new Payment
+app.post("/api/payments", blogAPI.addPayment);
+// GET a single Payment
+app.get("/api/payments/:id", blogAPI.getPayment);
 
-// Update Event using PUT
-app.put("/api/events/:id", blogAPI.updateEvent);
-// DELETE a Event
-app.delete("/api/events/:id", blogAPI.deleteEvent);
-// DELETE all Event
-app.delete("/api/events", blogAPI.deleteAllEvents);
+// Update Payment using PUT
+app.put("/api/payments/:id", blogAPI.updatePayment);
+// DELETE a Payment
+app.delete("/api/payments/:id", blogAPI.deletePayment);
+// DELETE all Payment
+app.delete("/api/payments", blogAPI.deleteAllPayments);
 
 const PORT = 4000;
 

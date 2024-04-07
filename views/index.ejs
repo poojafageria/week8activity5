@@ -1,8 +1,8 @@
-<!-- Define a function to render each event -->
-<% function renderEvent(event) { %>
+<!-- Define a function to render each payment -->
+<% function renderPayment(payment) { %>
     <div class="item-preview">
-      <a href="/single-event/<%= event._id %>">
-        <h2>Title: <%= event.title %></h2>
+      <a href="/single-payment/<%= payment._id %>">
+        <h2>Title: <%= payment.title %></h2>
         <p>Details</p>
       </a>
     </div>
@@ -14,26 +14,26 @@
     <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Events</title>
+      <title>Payments</title>
       <link rel="stylesheet" href="/css/styles.css" />
       <!-- Link to external stylesheet -->
     </head>
     <body>
       <nav class="navbar">
-        <h1>My Events</h1>
+        <h1>My Payments</h1>
         <div class="links">
           <a href="/">Home</a
-          ><a class="new-item-link" href="/addevent">New Event</a>
+          ><a class="new-item-link" href="/addpayment">New Payment</a>
         </div>
       </nav>
   
       <div class="content">
         <div class="home">
           <div class="item-list">
-            <% if (events.length > 0) { %>
-            <!-- Call the renderEvent function for each event -->
-            <% events.forEach(renderEvent); %> <% } else { %>
-            <p>No events found.</p>
+            <% if (payments.length > 0) { %>
+            <!-- Call the renderPayment function for each payment -->
+            <% payments.forEach(renderPayment); %> <% } else { %>
+            <p>No payments found.</p>
             <% } %>
           </div>
         </div>
